@@ -3,22 +3,10 @@ import TylerPage from './views/TylerPage.vue';
 import BikesPage from './views/BikesPage.vue';
 import App from './views/App.vue';
 import '../assets/app.scss';
-import Vuex from 'vuex';
 import VueRouter from 'vue-router';
+import store from "./store";
 
-Vue.use(Vuex);
 Vue.use(VueRouter);
-
-const store = new Vuex.Store({
-    state: {
-        count: 0
-    },
-    mutations: {
-        increment(state) {
-            state.count++;
-        }
-    }
-});
 
 const routes = [
     { path: '/tyler', component: TylerPage },

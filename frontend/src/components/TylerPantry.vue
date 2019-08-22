@@ -6,18 +6,18 @@
     </div>
 </template>
 
-<script>
-    export default {
-        props: {
-            food: {
-                type: String,
-                required: true
-            }
-        },
-        methods: {
-            updateCount() {
-                this.$store.commit('increment');
-            }
+<script lang="ts">
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+    import { Prop } from 'vue-property-decorator';
+
+    @Component({})
+    export default class TylerPantry extends Vue {
+        @Prop()
+        food!: string;
+
+        updateCount() {
+            this.$store.commit('increment');
         }
     }
 </script>

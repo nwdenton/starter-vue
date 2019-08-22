@@ -4,5 +4,8 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import Vue from 'vue';
+
+    export default class BikesPage extends Vue {}
 </script>

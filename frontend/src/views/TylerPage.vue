@@ -2,28 +2,26 @@
     <div class="full-width center-content">
         <div>
             <h1>HEY Tyler!</h1>
-            <input :value="tylersFood" @change="changeFood" />
+            <input :value="tylersFood"/>
             <tyler-pantry :food="tylersFood"></tyler-pantry>
         </div>
     </div>
 </template>
 
-<script>
-    import TylerPantry from '../components/TylerPantry.vue'
+<script lang="ts">
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+    import TylerPantry from '../components/TylerPantry.vue';
 
-    export default {
-        data: function () {
-            return {
-                tylersFood: 'apple'
-            }
-        },
-        components: {
-            TylerPantry: TylerPantry
-        },
-        methods: {
-            changeFood(e) {
-                this.tylersFood = e.target.value;
-            }
+    @Component({
+        components: { TylerPantry }
+    })
+    export default class TylerPage extends Vue {
+        tylersFood: string;
+
+        constructor() {
+            super();
+            this.tylersFood = 'apple';
         }
     }
 </script>
