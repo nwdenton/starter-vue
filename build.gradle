@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.7.RELEASE'
+	id 'java'
+}
+
+apply plugin: "io.spring.dependency-management"
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+//	maven {
+//		url = "$System.env.NEXU_URL/repository/maven-public"
+//		credentials {
+//			username = "$System.env.NEXUS_USERNAME"
+//			password = "$System.env.NEXUS_PASSWORD"
+//		}
+//	}
+	mavenCentral()
+}
+
+dependencies {
+	implementation "com.fasterxml.jackson.core:jackson-databind:2.9.9.1"
+	implementation "io.pivotal.cfenv:java-cfenv-boot-pivotal-sso:1.1.0.RELEASE"
+//	implementation "org.flywaydb:flyway-core"
+	implementation "org.springframework.boot:spring-boot-starter-actuator"
+//	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.1.6.RELEASE"
+	implementation "org.springframework.security.oauth:spring-security-oauth2:2.3.6.RELEASE"
+	implementation "org.springframework.session:spring-session-jdbc"
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.springframework.security:spring-security-test"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	compile "junit:junit:4.12"
+	compileOnly "org.projectlombok:lombok:1.18.8"
+	runtimeOnly "mysql:mysql-connector-java"
+	runtimeOnly "org.springframework.boot:spring-boot-devtools"
+	annotationProcessor "org.projectlombok:lombok:1.18.8"
+}
+
+tasks {
+
+}
