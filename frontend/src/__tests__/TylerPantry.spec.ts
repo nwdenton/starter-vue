@@ -1,14 +1,9 @@
-import {createLocalVue, mount} from "@vue/test-utils";
-import TylerPantry from "../components/TylerPantry";
-import Vuex from 'vuex';
+import {mount} from "@vue/test-utils";
+import TylerPantry from "../components/TylerPantry.vue";
 
 describe('TylerPantry', function () {
-    const vue = createLocalVue();
-    vue.use(Vuex);
-
     it('displays food', () => {
         const app = mount(TylerPantry, {
-            vue,
             mocks: {
                 $store: {
                     state: { count: 1 }
