@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import TylerPage from '../views/TylerPage.vue';
+import TylerPage from '@views/TylerPage.vue';
 
 describe('TylerPantry', () => {
     it('has centered stuff', () => {

@@ -1,10 +1,10 @@
 import Vue from 'vue';
-import TylerPage from './views/TylerPage.vue';
-import BikesPage from './views/BikesPage.vue';
-import App from './views/App.vue';
-import '../assets/app.scss';
+import TylerPage from '@views/TylerPage.vue';
+import BikesPage from '@views/BikesPage.vue';
+import App from '@views/App.vue';
+import '@assets/app.scss';
 import VueRouter from 'vue-router';
-import store from "./store";
+import store from "@/store";
 
 Vue.use(VueRouter);
 

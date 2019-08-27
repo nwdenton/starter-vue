@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
+    "baseUrl": ".",
     "sourceMap": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -14,7 +15,10 @@
     "lib": [
       "es2016",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "./src/**/*"

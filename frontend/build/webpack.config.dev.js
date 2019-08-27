@@ -47,7 +47,14 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts','.js','.vue']
+        extensions: ['.ts','.js','.vue'],
+        alias: {
+            '@': resolve('../src'),
+            '@views': resolve('src/views'),
+            '@components': resolve('src/components'),
+            '@services': resolve('src/services'),
+            '@assets': resolve('assets'),
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
