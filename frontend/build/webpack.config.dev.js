@@ -22,6 +22,10 @@ module.exports = {
             key: fs.readFileSync('./certs/server.key'),
             cert: fs.readFileSync('./certs/server.cert'),
         },
+        port: 3000,
+        proxy: {
+            '/api': 'http://localhost:8080'
+        }
     },
     module: {
         rules: [
