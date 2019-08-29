@@ -4,6 +4,7 @@ const {VueLoaderPlugin} = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const fs = require('fs');
 
 function resolve (dir) {
     return path.join(__dirname, '..', dir)
@@ -16,7 +17,11 @@ module.exports = {
         hot: true,
         watchOptions: {
             poll: true
-        }
+        },
+        https: {
+            key: fs.readFileSync('./certs/server.key'),
+            cert: fs.readFileSync('./certs/server.cert'),
+        },
     },
     module: {
         rules: [
@@ -49,7 +54,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts','.js','.vue'],
         alias: {
-            '@': resolve('../src'),
+            '@': resolve('src'),
             '@views': resolve('src/views'),
             '@components': resolve('src/components'),
             '@services': resolve('src/services'),
