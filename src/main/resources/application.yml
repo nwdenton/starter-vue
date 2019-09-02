@@ -1,0 +1,10 @@
+security:
+  oauth2:
+    client:
+      clientId: oauth-client-id
+      clientSecret: oauth-client-secret
+      accessTokenUri: http://oauthService.com/oauth/token
+      userAuthorizationUri: http://oauthService.com/oauth/authorize
+      clientAuthenticationScheme: header
+    resource:
+      userInfoUri: http://oauthService.com/userinfo

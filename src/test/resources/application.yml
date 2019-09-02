@@ -1,0 +1,10 @@
+security:
+  oauth2:
+    client:
+
+      accessTokenUri: http://localhost:8077/oauth/token
+      userAuthorizationUri: http://localhost:8077/oauth/authorize
+      clientId: oauth-client-id
+      clientSecret: oauth-client-secret
+    resource:
+      userInfoUri: http://localhost:8077/userinfo
