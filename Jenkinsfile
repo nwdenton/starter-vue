@@ -5,14 +5,24 @@ node {
      echo "Building version ${v}"
     }
 
+    stage('Quality Analysis') {
+        withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SECRET')]) {
+            echo "My secret text is '${SECRET}'"
+        }
+    }
+
     stage('Build') {
       echo 'Building..'
+      sh './gradlew build -x test'
     }
+
     stage('Test') {
       echo 'Testing..'
+      sh './gradlew test'
     }
+
     stage('Deploy') {
-      echo 'Deploying....'
+     echo 'Deployed on PCF for real'
     }
  }
  def version() {
