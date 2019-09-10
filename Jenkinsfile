@@ -6,8 +6,9 @@ node {
     }
 
     stage('Quality Analysis') {
-        withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SECRET')]) {
-            echo "My secret text is '${SECRET}'"
+        withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SONARQUBE_LOGIN')]) {
+            sh './run_sonarqube.sh'
+
         }
     }
 

@@ -33,4 +33,3 @@ out/
 
 .DS_Store
 frontend/certs
-run_sonarqube.sh
