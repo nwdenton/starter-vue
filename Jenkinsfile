@@ -1,24 +1,21 @@
- node {
-     stage('Preparation') {
-         // Get some code from a GitHub repository
-         git credentialsId: 'ndenton_maestro_github', url: 'ssh://github.com/nwdenton/starter-vue.git'
-     }
+node {
+    git url: 'https://github.com/nwdenton/starter-vue.git'
+    def v = version()
+    if (v) {
+     echo "Building version ${v}"
+    }
 
-     stages {
-         stage('Build') {
-             steps {
-                 echo 'Building..'
-             }
-         }
-         stage('Test') {
-             steps {
-                 echo 'Testing..'
-             }
-         }
-         stage('Deploy') {
-             steps {
-                 echo 'Deploying....'
-             }
-         }
-     }
+    stage('Build') {
+      echo 'Building..'
+    }
+    stage('Test') {
+      echo 'Testing..'
+    }
+    stage('Deploy') {
+      echo 'Deploying....'
+    }
+ }
+ def version() {
+    def matcher = readFile('build.gradle') =~ '^version = \'.+\'$'
+    matcher ? matcher[0][1] : null
  }
