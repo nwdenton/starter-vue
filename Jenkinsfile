@@ -5,11 +5,8 @@ node {
      echo "Building version ${v}"
     }
 
-    stage('Quality Analysis') {
-        withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SONARQUBE_LOGIN')]) {
-            sh './run_sonarqube.sh'
-
-        }
+    stage('Nexus Policy Evaluation') {
+       nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: true, iqApplication: selectedApplication('smm-p'), iqScanPatterns: [[scanPattern: '**/*.jar']], iqStage: 'develop', jobCredentialsId: 'nexus-iq-global'
     }
 
     stage('Build') {
@@ -20,6 +17,12 @@ node {
     stage('Test') {
       echo 'Testing..'
       sh './gradlew test'
+    }
+
+    stage('Quality Analysis') {
+        withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SONARQUBE_LOGIN')]) {
+            sh './run_sonarqube.sh'
+        }
     }
 
     stage('Deploy') {
