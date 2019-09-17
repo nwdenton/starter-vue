@@ -5,10 +5,6 @@ node {
      echo "Building version ${v}"
     }
 
-    stage('Nexus Policy Evaluation') {
-       nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: true, iqApplication: selectedApplication('smm-p'), iqScanPatterns: [[scanPattern: '**/*.jar']], iqStage: 'develop', jobCredentialsId: 'nexus-iq-global'
-    }
-
     stage('Build') {
       echo 'Building..'
       sh './gradlew build -x test'
@@ -19,11 +15,16 @@ node {
       sh './gradlew test'
     }
 
+    stage('Nexus Policy Evaluation') {
+       nexusPolicyEvaluation advancedProperties: '', failBuildOnNetworkError: true, iqApplication: selectedApplication('smm-p'), iqScanPatterns: [[scanPattern: '**/*.jar']], iqStage: 'develop', jobCredentialsId: 'nexus-iq-global'
+    }
+
     stage('Quality Analysis') {
         withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SONARQUBE_LOGIN')]) {
-            sh './run_sonarqube.sh'
+            sh './scripts/run_sonarqube.sh'
         }
     }
+
 
     stage('Deploy') {
      echo 'Deployed on PCF for real'

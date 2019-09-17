@@ -1,3 +1,4 @@
-export NEXUS_URL=
-export NEXUS_USERNAME=
-export NEXUS_PASSWORD=
+export SONARQUBE_LOGIN=
+export NEXUS_IQ_CLI_JAR_PATH="path/from/project/root/dir"
+export NEXUS_IQ_USERNAME=
+export NEXUS_IQ_PASSWORD=

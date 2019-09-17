@@ -23,7 +23,6 @@ repositories {
 }
 
 dependencies {
-    implementation "com.fasterxml.jackson.core:jackson-databind:2.9.9.1"
     implementation "io.pivotal.cfenv:java-cfenv-boot-pivotal-sso:1.1.0.RELEASE"
 //	implementation "org.flywaydb:flyway-core"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
