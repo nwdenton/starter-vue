@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label v-if="!!userName">{{userName}}</label>
+        <label v-if="!!userName">User: {{userName}}</label>
         <router-link to="/tyler">Go to Tyler</router-link>
         <router-link to="/bikes">Go to Bikes</router-link>
         <router-view/>
@@ -10,6 +10,7 @@
 <script lang="ts">
     import Vue from 'vue';
     import client from '../client'
+    import axios from 'axios';
     import Component from 'vue-class-component';
 
     @Component({})
@@ -22,7 +23,7 @@
         }
 
         async created() {
-            client.get('/api/whoami')
+            axios.get('/api/whoami')
                 .then(response => {
                     if (response.status < 400) {
                         this.userName = response.data.name;

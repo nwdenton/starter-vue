@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 public class WhoAmIController {
-    @RequestMapping("api/whoami")
+    @GetMapping("/api/whoami")
     public Identity whoAmI() {
         return new Identity("Jim", Arrays.asList("user"));
     }
