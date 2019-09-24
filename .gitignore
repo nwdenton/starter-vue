@@ -33,3 +33,4 @@ out/
 
 .DS_Store
 frontend/certs
+src/main/resources/public

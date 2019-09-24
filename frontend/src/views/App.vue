@@ -9,7 +9,6 @@
 
 <script lang="ts">
     import Vue from 'vue';
-    import client from '../client'
     import axios from 'axios';
     import Component from 'vue-class-component';
 

@@ -18,10 +18,10 @@ module.exports = {
         watchOptions: {
             poll: true
         },
-        https: {
-            key: fs.readFileSync('./certs/server.key'),
-            cert: fs.readFileSync('./certs/server.cert'),
-        },
+        // https: {
+        //     key: fs.readFileSync('./certs/server.key'),
+        //     cert: fs.readFileSync('./certs/server.cert'),
+        // },
         port: 3000,
         proxy: {
             '/api': 'http://localhost:8080'
