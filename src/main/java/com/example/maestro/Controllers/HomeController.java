@@ -3,11 +3,11 @@ package com.example.maestro.Controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+/*@Controller
 public class HomeController {
 
     @GetMapping
     public String app() {
         return "index";
     }
-}
+}*/
