@@ -10,6 +10,15 @@ node {
       sh './gradlew build -x test'
     }
 
+    stage('Deploy') {
+        cfPush(
+            target: 'api.run.pivotal.io',
+            organization: 'nwd',
+            cloudSpace: 'maestro',
+            credentialsId: 'PWS_LOGIN'
+        )
+    }
+
     stage('Test') {
       echo 'Testing..'
       sh './gradlew test'
@@ -23,11 +32,6 @@ node {
         withCredentials([string(credentialsId: 'SONARQUBE_LOGIN', variable: 'SONARQUBE_LOGIN')]) {
             sh './scripts/run_sonarqube.sh'
         }
-    }
-
-
-    stage('Deploy') {
-     echo 'Deployed on PCF for real'
     }
  }
  def version() {

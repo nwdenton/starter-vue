@@ -1,3 +1,4 @@
 ---
  applications:
  - name: tyler-app
+   path: build/libs/maestro-0.0.1-SNAPSHOT.jar
