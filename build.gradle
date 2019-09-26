@@ -45,6 +45,11 @@ dependencies {
 	annotationProcessor "org.projectlombok:lombok:1.18.8"
 }
 
+
+build {
+	dependsOn ':copyFrontEnd'
+}
+
 task copyFrontEnd(type: Copy){
 	from "$projectDir/frontend/dist"
 	into "src/main/resources/public"
