@@ -17,10 +17,10 @@ node {
 
     stage('Deploy') {
         cfPush(
-            target: 'api.run.pivotal.io',
-            organization: 'nwd',
-            cloudSpace: 'maestro',
-            credentialsId: 'PWS_LOGIN'
+            target: 'api.sys.manual.smsf.s2p.cloud',
+            organization: 'SMMP',
+            cloudSpace: 'dev',
+            credentialsId: 'PCF_LOGIN'
         )
     }
 
