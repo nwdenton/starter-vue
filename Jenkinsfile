@@ -5,8 +5,13 @@ node {
      echo "Building version ${v}"
     }
 
-    stage('Build') {
-      echo 'Building..'
+    stage('Build FrontEnd') {
+        echo 'Building FrontEnd...'
+        sh 'pushd frontend; npm install; npm run build; popd;'
+    }
+
+    stage('Build Backend') {
+      echo 'Building Backend..'
       sh './gradlew build -x test'
     }
 
