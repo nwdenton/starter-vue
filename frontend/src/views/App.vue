@@ -1,9 +1,14 @@
 <template>
     <div>
-        <label v-if="!!userName">User: {{userName}}</label>
-        <router-link to="/tyler">Go to Tyler</router-link>
-        <router-link to="/bikes">Go to Bikes</router-link>
-        <router-view/>
+        <h1>Hello MAESTRO!</h1>
+        <div>
+            <label v-if="!!userName">User: {{userName}}</label>
+        </div>
+        <div>
+            <router-link to="/tyler">Go to Tyler</router-link>
+            <router-link to="/bikes">Go to Bikes</router-link>
+            <router-view/>
+        </div>
     </div>
 </template>
 
