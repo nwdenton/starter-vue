@@ -24,15 +24,6 @@ node {
         )
     }
 
-    stage('Deploy PWS temp') {
-        cfPush(
-            target: 'api.run.pivotal.io',
-            organization: 'nwd',
-            cloudSpace: 'maestro',
-            credentialsId: 'PWS_LOGIN'
-        )
-    }
-
     stage('Test') {
       echo 'Testing..'
       sh './gradlew test'
